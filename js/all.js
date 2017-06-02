@@ -1,6 +1,10 @@
-var myChart = echarts.init(document.getElementById('main'));
+var lineChart = echarts.init(document.getElementById('line'));
+var barChart = echarts.init(document.getElementById('bar'));
 
-var option = {
+var xAxis = ["shirt", "cardign", "chiffon shirt", "pants", "heels", "socks"];
+var data = [5, 20, 36, 10, 10, 20];
+
+var lineChartOption = {
     title: {
         text: 'ECharts entry example'
     },
@@ -9,15 +13,35 @@ var option = {
         data: ['Sales']
     },
     xAxis: {
-        data: ["shirt", "cardign", "chiffon shirt", "pants", "heels", "socks"]
+        data: xAxis
+    },
+    yAxis: {},
+    series: [{
+        name: 'Sales',
+        type: 'line',
+        data: data
+    }]
+};
+
+var barChartOption = {
+    title: {
+        text: 'ECharts entry example'
+    },
+    tooltip: {},
+    legend: {
+        data: ['Sales']
+    },
+    xAxis: {
+        data: xAxis
     },
     yAxis: {},
     series: [{
         name: 'Sales',
         type: 'bar',
-        data: [5, 20, 36, 10, 10, 20]
+        data: data
     }]
 };
 
-myChart.setOption(option);
+lineChart.setOption(lineChartOption);
+barChart.setOption(barChartOption);
 
